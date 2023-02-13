@@ -35,4 +35,17 @@ class ApplicationController < ActionController::Base
 
     render({ template: "calculation_templates/multiply_results" })
   end
+
+  def divide
+    render({ template: "calculation_templates/division_form" })
+  end
+
+  def division_wizard
+    @first = params.fetch("first-input").to_f
+    @second = params.fetch("second-input").to_f
+
+    @result = @first / @second
+
+    render({ template: "calculation_templates/division_results" })
+  end
 end
