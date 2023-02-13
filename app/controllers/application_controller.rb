@@ -22,4 +22,17 @@ class ApplicationController < ActionController::Base
 
     render({ template: "calculation_templates/subtract_results" })
   end
+
+  def multiply
+    render({ template: "calculation_templates/multiply_form" })
+  end
+
+  def multiplication_wizard
+    @first_operand = params.fetch("first-operand").to_f
+    @second_operand = params.fetch("second-operand").to_f
+
+    @result = @first_operand * @second_operand
+
+    render({ template: "calculation_templates/multiply_results" })
+  end
 end
